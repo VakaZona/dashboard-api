@@ -1,9 +1,14 @@
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import { userRouter } from './users/users.js';
 
 const port = 8001;
 
 const app = express();
+
+app.use((req, res, next) => {
+	console.log('Time', Date.now())
+	next();
+});
 
 app.get('/hello', (req, res) => {
 	res.status(404);
