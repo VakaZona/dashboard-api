@@ -1,16 +1,20 @@
-enum Direction {
-	Left = "left",
-	Right = 'right'
+interface HasLength {
+	length: number
 }
 
-Direction.Left
+function log<T extends HasLength, K>(obj: T, arr: K[]): K[] {
+	obj.length
+	console.log(obj);
+	return arr
+}
 
-function move(direction: Direction) {
-	switch (direction) {
-		case Direction.Left:
-			return -1
-		case Direction.Right:
-			return 1
-	}
+interface IUser {
+	name: string
+	age?: number
+	bid: <T>(sum: T) => boolean
+}
+
+function bid<T>(sum: T): boolean {
+	return true
 }
 
