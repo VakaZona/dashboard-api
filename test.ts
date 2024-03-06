@@ -1,32 +1,18 @@
-let a: number = 5
-let b: string = '5'
+let universalId: number | string = 5
+universalId = 'test'
 
-let c = a + b
-
-let t: number = a + Number(b)
-
-let d = true
-
-let names: string[] = ['test1', 'test2']
-
-let tup: [number, string] = [4, 'test']
-// tup.push('test 2')
-
-let e: any = 3
-e = 'test'
-e = true
-
-let anyArr: any[] = ['test', true, 3]
-
-
-function greet(name: string): string {
-	return name
+function printId(id: number | string) {
+	if (typeof id == 'string') {
+		console.log(id.toUpperCase())
+	} else {
+		console.log(id);
+	}
 }
 
-names.map((x: string) => x)
-
-
-function coord(coord: { lat?: number, long: number }) {
-
+function helloUser(user: string | string[]) {
+	if (Array.isArray(user)) {
+		console.log(user.join(', ') + 'Hi')
+	} else {
+		console.log(user) + 'Hi'
+	}
 }
-
