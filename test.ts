@@ -1,18 +1,54 @@
-let universalId: number | string = 5
-universalId = 'test'
+type coord = { lat: number, lang: number }
 
-function printId(id: number | string) {
-	if (typeof id == 'string') {
-		console.log(id.toUpperCase())
-	} else {
-		console.log(id);
-	}
+interface ICoord {
+	lat: number
+	long: number
 }
 
-function helloUser(user: string | string[]) {
-	if (Array.isArray(user)) {
-		console.log(user.join(', ') + 'Hi')
-	} else {
-		console.log(user) + 'Hi'
-	}
+
+type ID = number | string
+// type myString = string
+
+
+function compute(coord: coord) {
+
+}
+
+function compute2(coord: ICoord) {
+
+}
+
+interface Animal {
+	name: string
+}
+
+interface Dog extends Animal {
+	tail?: boolean
+}
+
+const dog: Dog = {
+	name: 'dog'
+}
+
+console.log(dog.name)
+
+type AnimalType = {
+	name: string
+}
+
+type DogType = Animal & {
+	tail: boolean
+}
+
+interface Cat {
+	name: string
+}
+
+interface Cat {
+	tail: boolean
+}
+
+const cat: Cat = {
+	name: 'test',
+	tail: true
 }
