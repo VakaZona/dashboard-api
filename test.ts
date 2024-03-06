@@ -1,54 +1,42 @@
-type coord = { lat: number, lang: number }
+const a = 'string'
 
-interface ICoord {
-	lat: number
-	long: number
+let b: 'hi' = 'hi'
+
+type direction = 'left' | 'right'
+
+function moveDog(direction: direction): -1 | 0 | 1 {
+	switch (direction) {
+		case 'left':
+			return -1
+		case 'right':
+			return 1
+		default:
+			return 0
+	}
 }
 
+moveDog('left')
 
-type ID = number | string
-// type myString = string
+interface IConnection {
+	host: string
+	port: number
+}
 
-
-function compute(coord: coord) {
+function connect(connection: IConnection | 'default') {
 
 }
 
-function compute2(coord: ICoord) {
+connect('default')
+connect({ host: '', port: 22 })
+
+
+const connection = {
+	host: 'localhost',
+	protocol: 'https' as 'https'
+}
+
+function connect2(host: string, protocol: 'https' | 'http') {
 
 }
 
-interface Animal {
-	name: string
-}
-
-interface Dog extends Animal {
-	tail?: boolean
-}
-
-const dog: Dog = {
-	name: 'dog'
-}
-
-console.log(dog.name)
-
-type AnimalType = {
-	name: string
-}
-
-type DogType = Animal & {
-	tail: boolean
-}
-
-interface Cat {
-	name: string
-}
-
-interface Cat {
-	tail: boolean
-}
-
-const cat: Cat = {
-	name: 'test',
-	tail: true
-}
+connect2(connection.host, connection.protocol)
