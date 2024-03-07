@@ -1,4 +1,4 @@
-import { NextFunction, Router } from 'express'
+import { NextFunction, Router, Response, Request } from 'express'
 
 export interface IControllerRoute {
 	path: string
